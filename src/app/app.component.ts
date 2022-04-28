@@ -35,6 +35,7 @@ import {Style, StyleService} from '../@vex/services/style.service';
 import icChromeReaderMode from '@iconify/icons-ic/twotone-chrome-reader-mode';
 import {ConfigName} from '../@vex/interfaces/config-name.model';
 import icMail from '@iconify/icons-ic/twotone-mail';
+import icHome from '@iconify/icons-ic/twotone-home';
 import {CometChat} from '@cometchat-pro/chat';
 import {environment} from '../environments/environment.prod';
 
@@ -115,6 +116,11 @@ export class AppComponent {
                 type: 'link',
                 label: 'Cometchat',
                 route: 'cometchat',
+            },
+            {
+                type: 'link',
+                label: 'Reports',
+                route: '/reports'
             }
         ];
 

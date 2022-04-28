@@ -35,4 +35,8 @@ export class CardService {
   deleteCard(id): Observable<any> {
     return this._http.delete(`${this.CARD}/cards/`+ id);
   }
+
+  getAllReportsById(id, params): Observable<any> {
+    return this._http.get<any[]>(this.CARD + `/reports/${id}?` + params);
+  }
 }
