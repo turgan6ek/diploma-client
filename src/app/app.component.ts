@@ -35,6 +35,7 @@ import { Style, StyleService } from '../@vex/services/style.service';
 import icChromeReaderMode from '@iconify/icons-ic/twotone-chrome-reader-mode';
 import { ConfigName } from '../@vex/interfaces/config-name.model';
 import icMail from '@iconify/icons-ic/twotone-mail';
+import icHome from "@iconify/icons-ic/twotone-home";
 
 @Component({
   selector: 'vex-root',
@@ -103,10 +104,23 @@ export class AppComponent {
      */
     this.navigationService.items = [
       {
-        type: 'link',
-        label: 'Scrumboard',
-        route: '',
-      }
+        type: 'dropdown',
+        label: 'Home',
+        icon: icHome,
+        children: [
+          {
+            type: 'link',
+            label: 'Scrumboard',
+            route: '',
+          },
+          {
+            type: 'link',
+            label: 'Reports',
+            route: '/reports'
+          }
+        ]
+      },
+
     ];
   }
 }

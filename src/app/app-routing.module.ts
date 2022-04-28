@@ -36,6 +36,10 @@ const routes: VexRoutes = [
         loadChildren: () => import('./pages/apps/scrumboard/scrumboard.module').then(m => m.ScrumboardModule),
       },
       {
+        path: 'reports',
+        loadChildren: () => import('./pages/apps/reports/reports.module').then(m => m.ReportsModule),
+      },
+      {
         path: 'apps',
         children: [
           {
