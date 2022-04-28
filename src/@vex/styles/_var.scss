@@ -1,7 +1,7 @@
 @use '~@angular/material' as mat;
 @import "@angular/material/_theming.scss";
 
-$sidenav-background: #1a202e !default;
+$sidenav-background: rgba(31, 40, 20, 1) !default;
 
 $config: mat.define-typography-config(
   $font-family: var(--font),

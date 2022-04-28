@@ -40,6 +40,10 @@ const routes: VexRoutes = [
         loadChildren: () => import('./pages/apps/reports/reports.module').then(m => m.ReportsModule),
       },
       {
+        path: 'reports',
+        loadChildren: () => import('./pages/apps/reports/reports.module').then(m => m.ReportsModule),
+      },
+      {
         path: 'apps',
         children: [
           {

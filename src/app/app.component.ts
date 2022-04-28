@@ -104,23 +104,20 @@ export class AppComponent {
      */
     this.navigationService.items = [
       {
-        type: 'dropdown',
-        label: 'Home',
-        icon: icHome,
-        children: [
-          {
-            type: 'link',
-            label: 'Scrumboard',
-            route: '',
-          },
-          {
-            type: 'link',
-            label: 'Reports',
-            route: '/reports'
-          }
-        ]
+        type: 'link',
+        label: 'Dashboard',
+        route: '',
       },
-
+      {
+        type: 'link',
+        label: 'Reports',
+        route: '/reports'
+      },
+      {
+        type: 'link',
+        label: 'Chat',
+        route: '/chats'
+      }
     ];
   }
 }

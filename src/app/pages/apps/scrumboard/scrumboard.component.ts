@@ -34,7 +34,7 @@ import icSearch from "@iconify/icons-ic/twotone-search";
     fadeInUp400ms
   ]
 })
-export class ScrumboardComponent implements OnInit, AfterContentInit {
+export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewInit {
 
   static nextId = 100;
 
@@ -281,7 +281,6 @@ export class ScrumboardComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    this.getCards();
   }
   delete(card, list): void {
     const index: number = list.children.indexOf(card);
@@ -289,5 +288,9 @@ export class ScrumboardComponent implements OnInit, AfterContentInit {
       list.children.splice(index, 1);
     }
     this.cardService.deleteCard(card.id).subscribe();
+  }
+
+  ngAfterViewInit(): void {
+    this.getCards();
   }
 }

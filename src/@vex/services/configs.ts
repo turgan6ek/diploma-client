@@ -3,14 +3,14 @@ import { ConfigName } from '../interfaces/config-name.model';
 import { Config } from '../interfaces/config.model';
 
 const defaultConfig: Config = {
-  id: ConfigName.apollo,
+  id: ConfigName.hermes,
   name: 'Apollo',
-  imgSrc: '//vex-landing.visurel.com/assets/img/layouts/apollo.png',
+  imgSrc: 'assets/img/demo/img.png',
   layout: 'horizontal',
   boxed: false,
   sidenav: {
-    title: 'VEX',
-    imageUrl: 'assets/img/demo/logo.svg',
+    title: '',
+    imageUrl: 'assets/img/demo/img.png',
     showCollapsePin: true,
     state: 'expanded'
   },
@@ -31,7 +31,7 @@ export const configs: Config[] = [
   mergeDeep({ ...defaultConfig }, {
     id: ConfigName.hermes,
     name: 'Hermes',
-    imgSrc: '//vex-landing.visurel.com/assets/img/layouts/hermes.png',
+    imgSrc: 'assets/img/demo/img.png',
     layout: 'vertical',
     boxed: true,
     toolbar: {
@@ -44,7 +44,7 @@ export const configs: Config[] = [
   mergeDeep({ ...defaultConfig }, {
     id: ConfigName.ares,
     name: 'Ares',
-    imgSrc: '//vex-landing.visurel.com/assets/img/layouts/ares.png',
+    imgSrc: 'assets/img/demo/img.png',
     toolbar: {
       fixed: false
     },
@@ -58,7 +58,7 @@ export const configs: Config[] = [
   mergeDeep({ ...defaultConfig }, {
     id: ConfigName.zeus,
     name: 'Zeus',
-    imgSrc: '//vex-landing.visurel.com/assets/img/layouts/zeus.png',
+    imgSrc: 'assets/img/demo/img.png',
     sidenav: {
       state: 'collapsed'
     },
@@ -66,7 +66,7 @@ export const configs: Config[] = [
   mergeDeep({ ...defaultConfig }, {
     id: ConfigName.ikaros,
     name: 'Ikaros',
-    imgSrc: '//vex-landing.visurel.com/assets/img/layouts/ikaros.png',
+    imgSrc: 'assets/img/demo/img.png',
     layout: 'vertical',
     boxed: true,
     toolbar: {
