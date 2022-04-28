@@ -19,6 +19,7 @@ import {CometchatComponent} from './cometchat.component';
 import {
     CometChatUI
 } from '../../../../cometchat-pro-angular-ui-kit/CometChatWorkspace/src/components/CometChatUI/CometChat-Ui/cometchat-ui.module';
+import {PageLayoutModule} from "../../../../@vex/components/page-layout/page-layout.module";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {
         ReactiveFormsModule,
         ScrollingModule,
         MatMenuModule,
-        CometChatUI
+        CometChatUI,
+        PageLayoutModule
     ]
 })
 export class CometchatModule {

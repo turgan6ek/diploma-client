@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import { ToolbarComponent } from './toolbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { NavigationItemModule } from '../../components/navigation-item/navigation-item.module';
 import { MegaMenuModule } from '../../components/mega-menu/mega-menu.module';
 import { ContainerModule } from '../../directives/container/container.module';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -34,9 +35,11 @@ import { ContainerModule } from '../../directives/container/container.module';
     RouterModule,
     NavigationItemModule,
     MegaMenuModule,
-    ContainerModule
+    ContainerModule,
+    MatDialogModule,
   ],
-  exports: [ToolbarComponent]
+  exports: [ToolbarComponent],
+  providers: [DatePipe]
 })
 export class ToolbarModule {
 }

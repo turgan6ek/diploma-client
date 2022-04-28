@@ -111,11 +111,7 @@ export class AppComponent {
                 type: 'link',
                 label: 'Scrumboard',
                 route: '',
-            },
-            {
-                type: 'link',
-                label: 'Cometchat',
-                route: 'cometchat',
+                icon: null
             },
             {
                 type: 'link',

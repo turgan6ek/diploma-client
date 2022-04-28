@@ -18,6 +18,9 @@ import icArrowDropDown from '@iconify/icons-ic/twotone-arrow-drop-down';
 import { PopoverService } from '../../components/popover/popover.service';
 import { MegaMenuComponent } from '../../components/mega-menu/mega-menu.component';
 import icSearch from '@iconify/icons-ic/twotone-search';
+import icChat from "@iconify/icons-ic/twotone-chat";
+import {MatDialog} from "@angular/material/dialog";
+import {CometchatComponent} from "../../../app/pages/apps/cometchat/cometchat.component";
 
 @Component({
   selector: 'vex-toolbar',
@@ -40,6 +43,7 @@ export class ToolbarComponent implements OnInit {
   isNavbarBelowToolbar$ = this.configService.config$.pipe(map(config => config.navbar.position === 'below-toolbar'));
 
   icSearch = icSearch;
+  icChat = icChat;
   icBookmarks = icBookmarks;
   emojioneUS = emojioneUS;
   emojioneDE = emojioneDE;
@@ -56,7 +60,8 @@ export class ToolbarComponent implements OnInit {
   constructor(private layoutService: LayoutService,
               private configService: ConfigService,
               private navigationService: NavigationService,
-              private popoverService: PopoverService) { }
+              private popoverService: PopoverService,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -92,5 +97,15 @@ export class ToolbarComponent implements OnInit {
 
   openSearch() {
     this.layoutService.openSearch();
+  }
+  openChat() {
+    const dialogRef = this.dialog.open(CometchatComponent, {
+      height: '600px',
+      width: '800px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
