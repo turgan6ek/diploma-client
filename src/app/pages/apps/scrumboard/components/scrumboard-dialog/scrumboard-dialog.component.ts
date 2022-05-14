@@ -32,8 +32,24 @@ export class ScrumboardDialogComponent implements OnInit {
     id: null,
     title: null,
     description: null,
-    userUuids: []
+    userUuids: [],
+    priority: null,
+    weight: null,
+    sprintId: null
   });
+
+  priorities = [
+    {id: 1, val: 'Low'},
+    {id: 2, val: 'Medium'},
+    {id: 3, val: 'High'},
+    {id: 4, val: 'Urgent'}
+  ];
+
+  weights = [
+    {id: 1, val: 'Easy'},
+    {id: 2, val: 'Medium'},
+    {id: 3, val: 'Hard'}
+  ];
 
   commentCtrl = new FormControl();
 
@@ -79,8 +95,8 @@ export class ScrumboardDialogComponent implements OnInit {
         title: card.title || '',
         description: card.description || '',
         userUuids: card.userUuids || [],
-        priority: 1,
-        weight: 1,
+        priority: card.priority,
+        weight: card.weight,
         sprintId: 1
       });
     }

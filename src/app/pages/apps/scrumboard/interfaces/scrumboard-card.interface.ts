@@ -15,6 +15,8 @@ export interface ScrumboardCard {
   comments?: ScrumboardComment[];
   attachments?: ScrumboardAttachment[];
   userUuids: string[];
+  priority: string;
+  weight: string;
   labels?: ScrumboardLabel[];
   cover?: ScrumboardAttachment;
 }

@@ -132,6 +132,7 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
 
   }
   open(board: Scrumboard, list?: ScrumboardList, card?: ScrumboardCard) {
+    console.log("open")
     this.addCardCtrl.setValue(null);
     if (list) {
       this.dialog.open(ScrumboardDialogComponent, {

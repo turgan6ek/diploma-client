@@ -1,5 +1,5 @@
 .login {
-  font-family: Montserrat, serif;
+  font-family: Montserrat;
   display: flex;
   justify-content: start;
   flex-direction: column;
@@ -28,7 +28,6 @@ button {
   padding: 15px 35px;
   background-color: #FFFFFF;
   color: #798024;
-  border-radius: 0;
 }
 button:hover{
   background: #FFF5CF;

@@ -71,9 +71,12 @@
                   <ic-icon [icon]="icAttachFile" inline="true" size="16px"></ic-icon>
                   <span class="box-text">{{ card.attachments.length }}</span>
                 </div>
+
+              </div>
+              <div>
                 <div fxLayoutGap="14px">
                   <button (click)="open(board, list, card)" mat-raised-button><ic-icon [icon]="icMagnifier" inline="true" size="16px"></ic-icon></button>
-                  <button *ngIf="roles == 'MANAGER'" (click)="delete(card, list)" mat-raised-button><ic-icon [icon]="icDelete" inline="true" size="16px"></ic-icon></button>
+                  <button (click)="delete(card, list)" mat-raised-button><ic-icon [icon]="icDelete" inline="true" size="16px"></ic-icon></button>
                 </div>
               </div>
             </div>

@@ -19,7 +19,8 @@
       </div>
     </div>
 
-    <div class="mt-3 ltr:ml-10 rtl:mr-10" fxLayout="row wrap" fxLayoutAlign="space-between start">
+    <div
+         class="ltr:ml-10 rtl:mr-10" fxLayout="row wrap" fxLayoutAlign="space-between start">
       <div class="members" fxFlex="none">
         <div fxLayout="row" fxLayoutAlign="start center">
           <mat-form-field>
@@ -37,7 +38,48 @@
 
   <mat-dialog-content class="pb-6 content">
 
-    <h2 class="body-2 font-medium m-0 mt-6 text-secondary" fxLayout="row" fxLayoutAlign="start center">
+    <h2 class="body-2 font-medium m-0 text-secondary" fxLayout="row" fxLayoutAlign="start center">
+      <ic-icon [icon]="icDescription" class="ltr:mr-4 rtl:ml-4" fxFlex="none" size="24px"></ic-icon>
+      <span>PRIORITY</span>
+    </h2>
+
+    <div class="ltr:ml-10 rtl:mr-10" fxLayout="row wrap" fxLayoutAlign="space-between start">
+      <div class="members" fxFlex="none">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-form-field>
+            <mat-label>Select priority</mat-label>
+            <mat-select formControlName="priority" [compareWith]="compareFunction">
+              <mat-option *ngFor="let priority of priorities" [value]="priority.id">{{priority.val}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <mat-divider class="-mx-6 mt-6"></mat-divider>
+
+    <h2 class="body-2 font-medium m-0text-secondary" fxLayout="row" fxLayoutAlign="start center">
+      <ic-icon [icon]="icDescription" class="ltr:mr-4 rtl:ml-4" fxFlex="none" size="24px"></ic-icon>
+      <span>WEIGHT</span>
+    </h2>
+    <div class="mt-3 ltr:ml-10 rtl:mr-10" fxLayout="row wrap" fxLayoutAlign="space-between start">
+      <div class="members" fxFlex="none">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-form-field>
+            <mat-label>Select weight</mat-label>
+            <mat-select formControlName="weight" [compareWith]="compareFunction">
+              <mat-option *ngFor="let w of weights" [value]="w.id">{{w.val}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <mat-divider class="-mx-6 mt-6"></mat-divider>
+
+  </mat-dialog-content>
+
+  <mat-dialog-content class="pb-6 content">
+
+    <h2 class="body-2 font-medium m-0 text-secondary" fxLayout="row" fxLayoutAlign="start center">
       <ic-icon [icon]="icDescription" class="ltr:mr-4 rtl:ml-4" fxFlex="none" size="24px"></ic-icon>
       <span>DESCRIPTION</span>
     </h2>
