@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomLayoutModule } from './custom-layout/custom-layout.module';
 import {FooterComponent} from "./footer/footer.component";
 import {HeaderComponent} from "./header/header.component";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -17,10 +18,10 @@ import {HeaderComponent} from "./header/header.component";
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
     // Vex
     VexModule,
-    CustomLayoutModule
+    CustomLayoutModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

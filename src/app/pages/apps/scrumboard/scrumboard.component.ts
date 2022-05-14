@@ -1,4 +1,4 @@
-import {AfterContentInit, AfterViewInit, Component, OnInit, TemplateRef} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, OnDestroy, OnInit, TemplateRef} from '@angular/core';
 import { ScrumboardList } from './interfaces/scrumboard-list.interface';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ScrumboardCard } from './interfaces/scrumboard-card.interface';
@@ -26,6 +26,7 @@ import icDelete from "@iconify/icons-ic/twotone-delete";
 import icSearch from "@iconify/icons-ic/twotone-search";
 import {fadeInRight400ms} from "../../../../@vex/animations/fade-in-right.animation";
 import {scaleIn400ms} from "../../../../@vex/animations/scale-in.animation";
+import {Observable, of} from "rxjs";
 @Component({
   selector: 'vex-scrumboard',
   templateUrl: './scrumboard.component.html',
@@ -37,11 +38,11 @@ import {scaleIn400ms} from "../../../../@vex/animations/scale-in.animation";
     stagger40ms
   ]
 })
-export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewInit {
+export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
 
   static nextId = 100;
 
-  board$;
+  board$: Observable<any>;
 
   addCardCtrl = new FormControl();
   addListCtrl = new FormControl();
@@ -68,7 +69,6 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
     this.board$ = this.route.paramMap.pipe(
         map(paramMap => +paramMap.get('email')),
         map(scrumboardId => scrumboards.find(board => board.id === 1)),
-
     );
   }
   getCards(): void {
@@ -284,6 +284,7 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   ngAfterContentInit(): void {
+    this.getCards();
   }
   delete(card, list): void {
     const index: number = list.children.indexOf(card);
@@ -294,6 +295,13 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   ngAfterViewInit(): void {
-    this.getCards();
+  }
+
+  ngOnDestroy() {
+    this.route
+    // this.board$ = this.route.paramMap.pipe(
+    //     map(paramMap => +paramMap.get('email')),
+    //     map(scrumboardId => scrumboards.find(board => board.id === 1)),
+    // );
   }
 }

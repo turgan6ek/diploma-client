@@ -3,7 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from "rxjs";
 import {AuthService} from "../services/auth.service";
 import {User} from "../models/user";
-
+import {CometchatComponent} from "../pages/apps/cometchat/cometchat.component";
+import {MatDialog} from "@angular/material/dialog";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,7 +16,8 @@ export class HeaderComponent implements OnInit, OnChanges {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private dialog: MatDialog
   ) {
     this.isLoggedIn = this.authService.loggedIn();
   }
@@ -32,7 +34,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
 
   navCalendar(): void {
-    this.router.navigate(['/calendar']);
+    this.router.navigate(['/apps/calendar']);
   }
   navReports(): void {
     this.router.navigate(['/report']);
@@ -42,5 +44,16 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
   logout(): void {
     this.authService.logout();
+  }
+
+  openChat() {
+    const dialogRef = this.dialog.open(CometchatComponent, {
+      height: '600px',
+      width: '800px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

@@ -25,23 +25,23 @@ const routes: VexRoutes = [
     },
     {
         path: '',
-        component: MainPageComponent,
+        // component: MainPageComponent,
         canActivate: [AuthGuard],
         children: [
             {
                 path: 'main-page',
-                redirectTo: '/'
+                component: MainPageComponent,
             },
             {
                 path: 'cometchat',
                 loadChildren: () => import('./pages/apps/cometchat/cometchat.module').then(m => m.CometchatModule),
             },
             {
-                path: 'dashboard',
+                path: 'dashboards',
                 loadChildren: () => import('./pages/apps/scrumboard/scrumboard.module').then(m => m.ScrumboardModule),
             },
             {
-                path: 'reports',
+                path: 'report',
                 loadChildren: () => import('./pages/apps/reports/reports.module').then(m => m.ReportsModule),
             },
             {

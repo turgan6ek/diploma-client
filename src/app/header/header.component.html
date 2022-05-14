@@ -9,20 +9,23 @@
   </div>
 
   <div class="right-part">
+    <button class="btn" id="cometchat" (click)="openChat()">
+      <img class="menu" src="./assets/content/call.png" alt="Menu">
+    </button>
     <a *ngIf="!(isLoggedIn | async)" class="link-header" routerLink = "../login">Login</a>
-    <a *ngIf="!(isLoggedIn | async)" class="link-header" routerLink = "../signup">Register</a>
+    <a *ngIf="!(isLoggedIn | async)" class="link-header" routerLink = "../register">Register</a>
     <a *ngIf="(isLoggedIn | async)" class="link-header" (click)="logout()" routerLink = "../login">Logout</a>
 
     <div class="nav-item dropdown">
-      <div ngbDropdown class="d-inline-block">
+      <div  class="d-inline-block">
         <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
           <img class="menu" src="./assets/content/icons/menu.png" alt="Menu">
         </button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <a ngbDropdownItem [href]="'/main-page#aboutUs'">About Us</a>
-          <a ngbDropdownItem [href]="'/main-page#opportunities'">Opportunities</a>
-          <a ngbDropdownItem [href]="'/main-page#ourFamily'">Our family</a>
-        </div>
+<!--        <div  aria-labelledby="dropdownBasic1">-->
+<!--          <a  [href]="'/main-page#aboutUs'">About Us</a>-->
+<!--          <a  [href]="'/main-page#opportunities'">Opportunities</a>-->
+<!--          <a  [href]="'/main-page#ourFamily'">Our family</a>-->
+<!--        </div>-->
       </div>
     </div>
   </div>
