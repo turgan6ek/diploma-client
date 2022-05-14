@@ -54,6 +54,6 @@ export class AuthService {
   }
 
   loggedIn() {
-    return !!localStorage.getItem('currentUser');
+    return this.currentUserSubject.asObservable();
   }
 }

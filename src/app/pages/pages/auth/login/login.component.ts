@@ -1,49 +1,43 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import icVisibility from '@iconify/icons-ic/twotone-visibility';
-import icVisibilityOff from '@iconify/icons-ic/twotone-visibility-off';
-import {fadeInUp400ms} from '../../../../../@vex/animations/fade-in-up.animation';
-import {AuthService} from '../../../../services/auth.service';
-import {environment} from '../../../../../environments/environment.prod';
-import {CometChat} from '@cometchat-pro/chat';
-
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import {HttpErrorResponse} from '@angular/common/http';
+import {CometChat} from "@cometchat-pro/chat";
+import {AuthService} from "../../../../services/auth.service";
+import {User} from "../../../../models/user";
+import {environment} from "../../../../../environments/environment.prod";
 @Component({
-    selector: 'vex-login',
+    selector: 'app-login-page',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    animations: [
-        fadeInUp400ms
-    ]
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
     form: FormGroup;
-    submitted = false;
     error = '';
-    inputType = 'password';
-    visible = false;
+    constructor(
+        private router: Router,
+        private authService: AuthService,
+        private fb: FormBuilder
+    ) {}
 
-    icVisibility = icVisibility;
-    icVisibilityOff = icVisibilityOff;
-
-    constructor(private router: Router,
-                private fb: FormBuilder,
-                private cd: ChangeDetectorRef,
-                private snackbar: MatSnackBar,
-                private authService: AuthService
-    ) {
-    }
-
-    ngOnInit() {
+    ngOnInit(): void {
         this.form = this.fb.group({
             login: ['', Validators.required],
             password: ['', Validators.required]
         });
     }
 
+    public onLogin(userForm: NgForm): void {
+        // document.getElementById('login-user-form').click();
+        this.authService.loginUser(userForm.value).subscribe(
+            (response: User) => {
+                console.log(response);
+            },
+            (error: HttpErrorResponse) => {
+                alert(error.message);
+            }
+        );
+    }
     get f() {
         return this.form.controls;
     }
@@ -69,29 +63,14 @@ export class LoginComponent implements OnInit {
                                     console.log('Login failed with exception:', {error});
                                 }
                             );
-                            this.router.navigate(['/scrumboard/']);
+                            this.router.navigate(['/dashboards']);
                         }, 1000);
                     } else {
                         this.error = 'Invalid Login';
                     }
-                },
-                (error) => {
-                    this.error = 'Login or password is incorrect!!!';
-                    this.submitted = false;
                 }
             );
         this.router.navigate(['/']);
     }
 
-    toggleVisibility() {
-        if (this.visible) {
-            this.inputType = 'password';
-            this.visible = false;
-            this.cd.markForCheck();
-        } else {
-            this.inputType = 'text';
-            this.visible = true;
-            this.cd.markForCheck();
-        }
-    }
 }

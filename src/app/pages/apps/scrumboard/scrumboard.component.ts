@@ -18,20 +18,23 @@ import icClose from '@iconify/icons-ic/twotone-close';
 import { FormControl } from '@angular/forms';
 import icStar from '@iconify/icons-ic/twotone-star';
 import icStarBorder from '@iconify/icons-ic/twotone-star-border';
-import { stagger80ms } from '../../../../@vex/animations/stagger.animation';
+import {stagger40ms, stagger80ms} from '../../../../@vex/animations/stagger.animation';
 import { fadeInUp400ms } from '../../../../@vex/animations/fade-in-up.animation';
 import {CardService} from "../../../services/card.service";
 import {AuthService} from "../../../services/auth.service";
 import icDelete from "@iconify/icons-ic/twotone-delete";
 import icSearch from "@iconify/icons-ic/twotone-search";
-
+import {fadeInRight400ms} from "../../../../@vex/animations/fade-in-right.animation";
+import {scaleIn400ms} from "../../../../@vex/animations/scale-in.animation";
 @Component({
   selector: 'vex-scrumboard',
   templateUrl: './scrumboard.component.html',
   styleUrls: ['./scrumboard.component.scss'],
   animations: [
-    stagger80ms,
-    fadeInUp400ms
+    fadeInUp400ms,
+    fadeInRight400ms,
+    scaleIn400ms,
+    stagger40ms
   ]
 })
 export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewInit {

@@ -117,6 +117,11 @@ export class AppComponent {
                 type: 'link',
                 label: 'Reports',
                 route: '/reports'
+            },
+            {
+                type: 'link',
+                label: 'Calendar',
+                route: '/apps/calendar'
             }
         ];
 

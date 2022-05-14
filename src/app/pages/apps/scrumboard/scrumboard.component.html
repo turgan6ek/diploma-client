@@ -80,25 +80,6 @@
           </div>
         </div>
       </vex-scrollbar>
-
-
-<!--      <div #addCardOriginRef class="bg-hover" fxFlex="none">-->
-<!--        <ng-template #addCardTemplate let-close="close">-->
-<!--          <div class="card px-4 py-6">-->
-<!--            <mat-form-field class="vex-dense-form-field">-->
-<!--              <mat-label>Card Title</mat-label>-->
-<!--              <input [formControl]="addCardCtrl" matInput placeholder="Enter your title...">-->
-<!--              <button (click)="createCard(list, close)"-->
-<!--                      class="-top-1"-->
-<!--                      color="primary"-->
-<!--                      mat-button-->
-<!--                      matSuffix-->
-<!--                      type="button">CREATE-->
-<!--              </button>-->
-<!--            </mat-form-field>-->
-<!--          </div>-->
-<!--        </ng-template>-->
-<!--      </div>-->
     </div>
 
     <div #addListOriginRef class="w-full max-w-xxs rounded bg-app-bar" fxFlex="none">
@@ -117,15 +98,7 @@
           </div>
         </div>
       </ng-template>
-
-<!--      <button *ngIf="roles == 'MANAGER'" (click)="openAddList(board, addListTemplate, addListOriginRef)"-->
-<!--              class="w-full"-->
-<!--              mat-button-->
-<!--              type="button">-->
-<!--        <ic-icon [icon]="icAdd" class="mr-1 -ml-1" inline="true"></ic-icon>-->
-<!--        <span>ADD LIST</span>-->
-<!--      </button>-->
-      <button *ngIf="roles == 'MANAGER'" (click)="open(board)"
+      <button (click)="open(board)"
               class="w-full"
               mat-button
               type="button">

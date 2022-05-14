@@ -1,0 +1,33 @@
+.footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  z-index: 10;
+  left: 0;
+
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0px;
+  font-family: Montserrat;
+  height: 100px;
+}
+
+.logo {
+  width: 10%;
+
+}
+.center-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: #798024;
+  font-weight: bold;
+}
+h5 {
+  margin: 0px 25px;
+}

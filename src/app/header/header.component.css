@@ -1,0 +1,82 @@
+.header {
+  /*position: relative;*/
+  width: 100%;
+  /*height: 8%;*/
+
+  background: #FFFFFF;
+  border: 2px solid #798024;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  color: #798024;
+  font-family: Montserrat;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+}
+
+/* LEFT PART CSS STYLE */
+.left-part {
+  /*background-color: #FFCB11;*/
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.left-part .link-header {
+  min-height: 100%;
+  margin: 0 10px;
+  border-left: 1px solid #798024;
+  border-right: 1px solid #798024;
+  padding: 15px 35px;
+  background-color: #FFFFFF;
+  color: #798024;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.left-part .link-header:hover {
+  text-decoration: none;
+  background-color: #FFF5CF;
+}
+
+/* RIGHT PART CSS STYLE */
+.right-part {
+  /*background-color: #FFCB11;*/
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.right-part .link-header {
+  min-height: 100%;
+  margin: 0 10px;
+  border-left: 1px solid #798024;
+  border-right: 1px solid #798024;
+  padding: 15px 35px;
+  background-color: #FFFFFF;
+  color: #798024;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.right-part .link-header:hover {
+  text-decoration: none;
+  background-color: #FFF5CF;
+}
+
+.logo {
+  width: 150px;
+}
+
+.menu {
+  width: 30px;
+  height: 30px;
+}

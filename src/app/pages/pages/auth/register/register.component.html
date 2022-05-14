@@ -1,63 +1,95 @@
-<div class="bg-pattern" fxLayout="column" fxLayoutAlign="center center">
-  <div class="card max-w-xs">
-    <div class="p-6 pb-0" fxLayout="column" fxLayoutAlign="center center">
-      <div class="fill-current text-center">
-        <img class="w-16" src="assets/img/demo/img.png">
+<div class="container registration">
+  <!-- Default form register -->
+  <form [formGroup]="form" class=" border border-light p-5">
+    <p class="heading">Register</p>
+    <!--    Username-->
+    <div class="mb-3 row">
+      <label for="name" class="col-sm-2 col-form-label">Username</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control square" id="username" formControlName="username">
       </div>
     </div>
-
-    <div class="text-center mt-4">
-      <h2 class="title m-0">Register</h2>
-    </div>
-
-    <div [formGroup]="form" class="p-6" fxLayout="column" fxLayoutGap="8px">
-      <div fxFlex="auto" fxLayout="column">
-        <mat-form-field fxFlex="grow">
-          <mat-label>Username</mat-label>
-          <input formControlName="username" matInput required>
-        </mat-form-field>
-<!--        <mat-form-field fxFlex="grow">-->
-<!--          <mat-label>Name</mat-label>-->
-<!--          <input formControlName="firstName" matInput required>-->
-<!--        </mat-form-field>-->
-<!--        <mat-form-field fxFlex="grow">-->
-<!--          <mat-label>Surname</mat-label>-->
-<!--          <input formControlName="lastName" matInput required>-->
-<!--        </mat-form-field>-->
-        <mat-form-field fxFlex="grow">
-          <mat-label>Email</mat-label>
-          <input formControlName="email" matInput required>
-        </mat-form-field>
-
-        <mat-form-field fxFlex="grow">
-          <mat-label>Phone</mat-label>
-          <input formControlName="phone" matInput required>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Gender</mat-label>
-          <mat-select formControlName="gender">
-            <mat-option value="male">Male</mat-option>
-            <mat-option value="female">Female</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field fxFlex="grow">
-          <mat-label>Password</mat-label>
-          <input [type]="inputType" formControlName="password" matInput required>
-          <button (click)="toggleVisibility()" mat-icon-button matSuffix matTooltip="Toggle Visibility" type="button">
-            <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
-            <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
-          </button>
-        </mat-form-field>
+    <!--    Name-->
+    <div class="mb-3 row">
+      <label for="name" class="col-sm-2 col-form-label">First Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control square" id="name" formControlName="firstName">
       </div>
-      <button (click)="send()" color="primary" mat-raised-button type="button">
-        CREATE ACCOUNT
+    </div>
+    <!--    Surname-->
+    <div class="mb-3 row">
+      <label for="surname" class="col-sm-2 col-form-label">Last Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control square" id="surname" formControlName="lastName">
+      </div>
+    </div>
+    <!--Phone Number-->
+    <div class="mb-3 row">
+      <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control square" id="phoneNumber" formControlName="phone">
+      </div>
+    </div>
+    <!--Gender-->
+    <!--    <div class="mb-3 row">-->
+    <!--      <label for="email" class="col-sm-2 col-form-label">Gender</label>-->
+    <!--      <div class="col-sm-10">-->
+    <!--        <div class="form-check form-check-inline">-->
+    <!--          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">-->
+    <!--          <label class="form-check-label" for="inlineRadio1">Female</label>-->
+    <!--        </div>-->
+    <!--        <div class="form-check form-check-inline">-->
+    <!--          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">-->
+    <!--          <label class="form-check-label" for="inlineRadio2">Male</label>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    Department-->
+    <!--    <div class="mb-3 row">-->
+    <!--      <label for="department" class="col-sm-2 col-form-label">Department</label>-->
+    <!--      <div class="col-sm-10">-->
+    <!--        <select class="form-control  square" aria-label="Default select example">-->
+    <!--          <option selected>Digital</option>-->
+    <!--          <option value="1">One</option>-->
+    <!--          <option value="2">Two</option>-->
+    <!--          <option value="3">Three</option>-->
+    <!--        </select>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    Position-->
+    <!--    <div class="mb-3 row">-->
+    <!--      <label for="position" class="col-sm-2 col-form-label">Position</label>-->
+    <!--      <div class="col-sm-10">-->
+    <!--        <select class="form-control  square" aria-label="Default select example">-->
+    <!--          <option selected>Project Manager</option>-->
+    <!--          <option value="1">One</option>-->
+    <!--          <option value="2">Two</option>-->
+    <!--          <option value="3">Three</option>-->
+    <!--        </select>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+    <!--    Email-->
+    <div class="mb-3 row">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control square" id="email" formControlName="email">
+      </div>
+    </div>
+    <!--    Password-->
+    <div class="mb-3 row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control square" id="inputPassword" formControlName="password">
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button type="button" id=" register-user-form">Close</button>
+      <button (click)="send()" type="submit">
+        Sign Up
       </button>
-      <p class="text-secondary text-center">
-        Already have an account?<br/>
-        <a [routerLink]="['/login']">Sign in here</a>
-      </p>
     </div>
-  </div>
+
+
+  </form>
 </div>
