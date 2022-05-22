@@ -7,19 +7,24 @@
     }
   }
 }
-
+.cardList {
+  border: solid 2px #798024;
+  color: #798024;
+}
 .scrumboard-card {
   margin-bottom: var(--padding-16);
-
+  background-color: rgba(255, 203, 17, 0.2);
+  color: #798024;
   &:last-of-type {
     margin-bottom: 0;
   }
 
   &:hover {
-    background: rgba(white, 0.5);
+    background: rgb(255, 203, 17);
   }
 
   .label {
+    color: white;
     border-radius: 6px;
     height: 6px;
     max-width: 32px;
@@ -27,7 +32,6 @@
 
   .box {
     padding: 3px;
-
     .box-text {
       font-size: 11px;
       font-weight: var(--font-weight-medium);
@@ -69,3 +73,15 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) !important;
 }
 
+.btn {
+  border-radius: 0;
+}
+
+.addbtn {
+  width: 30%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0;
+  border: solid 2px #798024;
+  color: #798024;
+}

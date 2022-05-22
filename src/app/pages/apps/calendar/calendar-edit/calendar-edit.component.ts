@@ -19,6 +19,7 @@ export class CalendarEditComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<CalendarEditComponent>,
               @Inject(MAT_DIALOG_DATA) public event: CalendarEvent<any>,
               private fb: FormBuilder) {
+    console.log(event)
   }
 
   ngOnInit() {

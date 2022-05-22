@@ -50,8 +50,6 @@ export class LoginComponent implements OnInit {
                     if (res) {
                         setTimeout(() => {
                             const role = this.authService.currentUserValue.roles;
-                            console.log('login roles:: ');
-                            console.log(role);
                             const authKey = environment.cometchatAuthKey;
                             const uid = this.authService.currentUserValue.username;
 

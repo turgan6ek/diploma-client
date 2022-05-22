@@ -26,7 +26,6 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    console.log(this.route)
   }
 
   showLink(): boolean {

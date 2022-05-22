@@ -19,4 +19,5 @@ export interface ScrumboardCard {
   weight: string;
   labels?: ScrumboardLabel[];
   cover?: ScrumboardAttachment;
+  deadline: Date;
 }

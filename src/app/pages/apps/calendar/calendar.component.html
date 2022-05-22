@@ -11,21 +11,5 @@
       [refresh]="refresh"
       [viewDate]="viewDate">
     </mwl-calendar-month-view>
-    <mwl-calendar-week-view
-      (eventClicked)="handleEvent('Clicked', $event.event)"
-      (eventTimesChanged)="eventTimesChanged($event)"
-      *ngSwitchCase="'week'"
-      [events]="events"
-      [refresh]="refresh"
-      [viewDate]="viewDate">
-    </mwl-calendar-week-view>
-    <mwl-calendar-day-view
-      (eventClicked)="handleEvent('Clicked', $event.event)"
-      (eventTimesChanged)="eventTimesChanged($event)"
-      *ngSwitchCase="'day'"
-      [events]="events"
-      [refresh]="refresh"
-      [viewDate]="viewDate">
-    </mwl-calendar-day-view>
   </vex-scrollbar>
 </div>

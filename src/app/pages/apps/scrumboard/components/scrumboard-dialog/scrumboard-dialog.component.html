@@ -20,14 +20,21 @@
     </div>
 
     <div
-         class="ltr:ml-10 rtl:mr-10" fxLayout="row wrap" fxLayoutAlign="space-between start">
-      <div class="members" fxFlex="none">
-        <div fxLayout="row" fxLayoutAlign="start center">
-          <mat-form-field>
+         class="ltr:ml-10 rtl:mr-10" fxLayout="row" fxLayoutAlign="space-between start">
+      <div fxFlex="none">
+        <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+          <mat-form-field style="margin-right: 50px">
             <mat-label>Member</mat-label>
-            <mat-select formControlName="userUuids" [compareWith]="compareFunction" multiple>
+            <mat-select formControlName="userUuids" multiple>
               <mat-option *ngFor="let user of users" [value]="user.id">{{user.username}}</mat-option>
             </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Choose a deadline</mat-label>
+            <input matInput formControlName="deadline" [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
       </div>
@@ -37,37 +44,20 @@
   </div>
 
   <mat-dialog-content class="pb-6 content">
-
-    <h2 class="body-2 font-medium m-0 text-secondary" fxLayout="row" fxLayoutAlign="start center">
-      <ic-icon [icon]="icDescription" class="ltr:mr-4 rtl:ml-4" fxFlex="none" size="24px"></ic-icon>
-      <span>PRIORITY</span>
-    </h2>
-
-    <div class="ltr:ml-10 rtl:mr-10" fxLayout="row wrap" fxLayoutAlign="space-between start">
-      <div class="members" fxFlex="none">
-        <div fxLayout="row" fxLayoutAlign="start center">
-          <mat-form-field>
-            <mat-label>Select priority</mat-label>
-            <mat-select formControlName="priority" [compareWith]="compareFunction">
-              <mat-option *ngFor="let priority of priorities" [value]="priority.id">{{priority.val}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-    </div>
-    <mat-divider class="-mx-6 mt-6"></mat-divider>
-
-    <h2 class="body-2 font-medium m-0text-secondary" fxLayout="row" fxLayoutAlign="start center">
-      <ic-icon [icon]="icDescription" class="ltr:mr-4 rtl:ml-4" fxFlex="none" size="24px"></ic-icon>
-      <span>WEIGHT</span>
-    </h2>
     <div class="mt-3 ltr:ml-10 rtl:mr-10" fxLayout="row wrap" fxLayoutAlign="space-between start">
       <div class="members" fxFlex="none">
         <div fxLayout="row" fxLayoutAlign="start center">
-          <mat-form-field>
+          <mat-form-field style="margin-right: 50px">
             <mat-label>Select weight</mat-label>
-            <mat-select formControlName="weight" [compareWith]="compareFunction">
+            <mat-select formControlName="weight" >
               <mat-option *ngFor="let w of weights" [value]="w.id">{{w.val}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Select priority</mat-label>
+            <mat-select formControlName="priority" >
+              <mat-option *ngFor="let priority of priorities" [value]="priority.id">{{priority.val}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

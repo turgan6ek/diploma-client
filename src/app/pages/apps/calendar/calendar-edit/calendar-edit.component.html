@@ -3,31 +3,29 @@
 </h3>
 
 <mat-dialog-content>
-  <form [formGroup]="form">
+  <form >
     <div class="flex flex-col">
       <mat-form-field>
-        <mat-label>Event Name</mat-label>
-        <input formControlName="title" matInput>
+        <mat-label>Title</mat-label>
+        <input disabled name="title" [(ngModel)]="event.meta.title" matInput>
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Start Date</mat-label>
-        <input [matDatepicker]="startDatepicker" formControlName="start" matInput>
+        <mat-label>Deadline</mat-label>
+        <input disabled [matDatepicker]="startDatepicker" name="deadline" [(ngModel)]="event.meta.deadline" matInput>
         <mat-datepicker-toggle [for]="startDatepicker" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #startDatepicker></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>End Date</mat-label>
-        <input [matDatepicker]="endDatepicker" formControlName="end" matInput>
-        <mat-datepicker-toggle [for]="endDatepicker" matSuffix></mat-datepicker-toggle>
-        <mat-datepicker #endDatepicker></mat-datepicker>
+        <mat-label>Description</mat-label>
+        <textarea disabled name="description" [(ngModel)]="event.meta.description" matInput>
+        </textarea>
       </mat-form-field>
     </div>
   </form>
 </mat-dialog-content>
 
 <mat-dialog-actions class="flex justify-end">
-  <button mat-button mat-dialog-close>CANCEL</button>
-  <button (click)="save()" class="save" color="primary" mat-raised-button>SAVE</button>
+  <button mat-button mat-dialog-close>CLOSE</button>
 </mat-dialog-actions>

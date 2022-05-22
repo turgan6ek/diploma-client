@@ -26,19 +26,13 @@ import icDelete from "@iconify/icons-ic/twotone-delete";
 import icSearch from "@iconify/icons-ic/twotone-search";
 import {fadeInRight400ms} from "../../../../@vex/animations/fade-in-right.animation";
 import {scaleIn400ms} from "../../../../@vex/animations/scale-in.animation";
-import {Observable, of} from "rxjs";
+import {Observable, of, Subscription} from "rxjs";
 @Component({
   selector: 'vex-scrumboard',
   templateUrl: './scrumboard.component.html',
   styleUrls: ['./scrumboard.component.scss'],
-  animations: [
-    fadeInUp400ms,
-    fadeInRight400ms,
-    scaleIn400ms,
-    stagger40ms
-  ]
 })
-export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
+export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewInit {
 
   static nextId = 100;
 
@@ -58,6 +52,7 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
   icStarBorder = icStarBorder;
   icMagnifier = icSearch;
   roles: any;
+
   constructor(private dialog: MatDialog,
               private route: ActivatedRoute,
               private popover: PopoverService,
@@ -161,8 +156,6 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
           back.children[0].children.push(value);
         });
       });
-
-
     }
   }
 
@@ -249,20 +242,6 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
     });
   }
 
-  // createCard(list: ScrumboardList, close: () => void) {
-  //   if (!this.addCardCtrl.value) {
-  //     return;
-  //   }
-  //
-  //   list.children.push({
-  //     id: ScrumboardComponent.nextId++,
-  //     title: this.addCardCtrl.value
-  //   });
-  //
-  //   close();
-  //
-  //   this.addCardCtrl.setValue(null);
-  // }
 
   createList(board: Scrumboard, close: () => void) {
     if (!this.addListCtrl.value) {
@@ -298,11 +277,6 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
   ngAfterViewInit(): void {
   }
 
-  ngOnDestroy() {
-    this.route
-    // this.board$ = this.route.paramMap.pipe(
-    //     map(paramMap => +paramMap.get('email')),
-    //     map(scrumboardId => scrumboards.find(board => board.id === 1)),
-    // );
-  }
+
+
 }

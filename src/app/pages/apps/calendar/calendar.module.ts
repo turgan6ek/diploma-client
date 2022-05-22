@@ -13,7 +13,7 @@ import { ScrollbarModule } from '../../../../@vex/components/scrollbar/scrollbar
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PageLayoutModule } from '../../../../@vex/components/page-layout/page-layout.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { IconModule } from '@visurel/iconify-angular';
@@ -22,26 +22,27 @@ import { ContainerModule } from '../../../../@vex/directives/container/container
 
 @NgModule({
   declarations: [CalendarComponent, CalendarEditComponent],
-  imports: [
-    CommonModule,
-    CalendarRoutingModule,
-    AngularCalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    }),
-    MatDialogModule,
-    MatButtonModule,
-    MatIconModule,
-    ScrollbarModule,
-    MatSnackBarModule,
-    MatInputModule,
-    MatDatepickerModule,
-    ReactiveFormsModule,
-    PageLayoutModule,
-    MatNativeDateModule,
-    IconModule,
-    ContainerModule
-  ],
+    imports: [
+        CommonModule,
+        CalendarRoutingModule,
+        AngularCalendarModule.forRoot({
+            provide: DateAdapter,
+            useFactory: adapterFactory
+        }),
+        MatDialogModule,
+        MatButtonModule,
+        MatIconModule,
+        ScrollbarModule,
+        MatSnackBarModule,
+        MatInputModule,
+        MatDatepickerModule,
+        ReactiveFormsModule,
+        PageLayoutModule,
+        MatNativeDateModule,
+        IconModule,
+        ContainerModule,
+        FormsModule
+    ],
   entryComponents: [CalendarEditComponent]
 })
 export class CalendarModule {

@@ -35,7 +35,8 @@ export class ScrumboardDialogComponent implements OnInit {
     userUuids: [],
     priority: null,
     weight: null,
-    sprintId: null
+    sprintId: null,
+    deadline: null
   });
 
   priorities = [
@@ -97,7 +98,8 @@ export class ScrumboardDialogComponent implements OnInit {
         userUuids: card.userUuids || [],
         priority: card.priority,
         weight: card.weight,
-        sprintId: 1
+        sprintId: 1,
+        deadline: card.deadline
       });
     }
     const card = this.data.card;
@@ -111,6 +113,6 @@ export class ScrumboardDialogComponent implements OnInit {
     this.dialogRef.close(this.form.value);
   }
   compareFunction(o1: any, o2: any) {
-    return (o1.id == o2.id);
+    return (o1.id === o2.id);
   }
 }

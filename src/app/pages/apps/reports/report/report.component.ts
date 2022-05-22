@@ -16,7 +16,7 @@ export class ReportComponent implements OnInit, AfterViewInit {
   page = 0;
   size = 5;
   length: number;
-  id: number;
+  id: string;
   constructor(private cardService: CardService,
               private authService: AuthService) {
     this.id = this.authService.currentUserValue.id;

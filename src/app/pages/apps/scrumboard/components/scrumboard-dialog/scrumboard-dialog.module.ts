@@ -14,6 +14,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { RelativeDateTimeModule } from '../../../../../../@vex/pipes/relative-date-time/relative-date-time.module';
 import {MatListModule} from "@angular/material/list";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {MatListModule} from "@angular/material/list";
         MatMenuModule,
         MatDividerModule,
         RelativeDateTimeModule,
-        MatListModule
+        MatListModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
   exports: [ScrumboardDialogComponent],
   entryComponents: [ScrumboardDialogComponent]
