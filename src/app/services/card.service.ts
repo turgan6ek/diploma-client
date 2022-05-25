@@ -9,6 +9,7 @@ export class CardService {
 
   private readonly GENERAL = '/auth/public/v1/auth';
   private readonly CARD = '/auth/public/v1/card';
+  private readonly PEBBLE = '/auth/public/v1/auth/pebble';
 
   constructor(private _http: HttpClient) { }
 
@@ -38,5 +39,8 @@ export class CardService {
 
   getAllReportsById(id, params): Observable<any> {
     return this._http.get<any[]>(this.CARD + `/reports/${id}?` + params);
+  }
+  public getPDF(id): Observable<Blob> {
+    return this._http.get(this.PEBBLE + `/by-user/${id}`, { responseType: 'blob' });
   }
 }

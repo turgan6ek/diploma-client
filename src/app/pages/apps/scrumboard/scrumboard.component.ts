@@ -67,64 +67,48 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
     );
   }
   getCards(): void {
-    if (JSON.parse(localStorage.getItem('currentUser')).roles[0] == "MANAGER") {
-      this.cardService.getAllCards().subscribe(res => {
-        for(let c of res) {
+    this.board$.subscribe(board => {
+      board.children[0].children = [];
+      board.children[1].children = [];
+      board.children[2].children = [];
+      board.children[3].children = [];
+    })
+    this.cardService.getAllCardsByUser(JSON.parse(localStorage.getItem('currentUser')).id).subscribe(
+        res => {
+          for(let c of res) {
             switch (c.status) {
               case 'NEW':
                 this.board$.subscribe(board => {
-                  board.children[0].children.push(c);
+                  if (!board.children[0].children.includes(c)) {
+                    board.children[0].children.push(c);
+                  }
                 })
                 break;
               case 'IN_PROGRESS':
                 this.board$.subscribe(board => {
-                  board.children[1].children.push(c);
+                  if (!board.children[1].children.includes(c)) {
+                    board.children[1].children.push(c);
+                  }
                 })
                 break;
               case 'TEST':
                 this.board$.subscribe(board => {
-                  board.children[2].children.push(c);
+                  if (!board.children[2].children.includes(c)) {
+                    board.children[2].children.push(c);
+                  }
                 })
                 break;
               case 'DONE':
                 this.board$.subscribe(board => {
-                  board.children[3].children.push(c);
+                  if (!board.children[3].children.includes(c)) {
+                    board.children[3].children.push(c);
+                  }
                 })
                 break;
             }
-        }
-      });
-    } else {
-      this.cardService.getAllCardsByUser(JSON.parse(localStorage.getItem('currentUser')).id).subscribe(
-          res => {
-            for(let c of res) {
-              switch (c.status) {
-                case 'NEW':
-                  this.board$.subscribe(board => {
-                    board.children[0].children.push(c);
-                  })
-                  break;
-                case 'IN_PROGRESS':
-                  this.board$.subscribe(board => {
-                    board.children[1].children.push(c);
-                  })
-                  break;
-                case 'TEST':
-                  this.board$.subscribe(board => {
-                    board.children[2].children.push(c);
-                  })
-                  break;
-                case 'DONE':
-                  this.board$.subscribe(board => {
-                    board.children[3].children.push(c);
-                  })
-                  break;
-              }
-            }
           }
-      );
-    }
-
+        }
+    );
   }
   open(board: Scrumboard, list?: ScrumboardList, card?: ScrumboardCard) {
     console.log("open")

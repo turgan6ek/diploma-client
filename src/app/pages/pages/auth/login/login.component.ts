@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
                                     console.log('Login failed with exception:', {error});
                                 }
                             );
-                            this.router.navigate(['/dashboards']);
+                            this.router.navigate(['/main-page']);
                         }, 1000);
                     } else {
                         this.error = 'Invalid Login';
