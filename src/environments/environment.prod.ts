@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  cometchatAppId: '207986fd8d431aaa',
+  cometchatAppId: '21068447b6e2abf3',
   cometchatRegion: 'us',
-  cometchatAuthKey: '826149f4eef6386be783aef8044bdb9085e7b547'
+  cometchatAuthKey: '4cf9c122dfa5daf25c63656957539fdd2d49d206'
 };
