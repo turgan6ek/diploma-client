@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import icVisibility from '@iconify/icons-ic/twotone-visibility';
 import icVisibilityOff from '@iconify/icons-ic/twotone-visibility-off';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -14,7 +14,8 @@ import {CometChat} from '@cometchat-pro/chat';
     styleUrls: ['./register.component.scss'],
     animations: [
         fadeInUp400ms
-    ]
+    ],
+    encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
 
@@ -38,12 +39,10 @@ export class RegisterComponent implements OnInit {
             username: ['', Validators.required],
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            gender: ['', Validators.required],
-            email: ['', Validators.required],
+            email: ['', [Validators.email]],
             phone: ['', Validators.required],
-            cellPhone: ['', Validators.required],
-            password: ['', Validators.required],
-            roles: [['USER'], Validators.required],
+            password: ['', [Validators.minLength(8)]],
+            roles: [['USER']],
         });
     }
 
