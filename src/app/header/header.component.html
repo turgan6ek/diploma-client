@@ -3,26 +3,18 @@
     <a routerLink="../main-page" class="mr-5">
       <img class="logo" src="./assets/content/logo/logo.png" alt="">
     </a>
-    <a *ngIf="(isLoggedIn | async)" class="link-header" (click)="navCalendar()">Calendar</a>
+    <a *ngIf="(isLoggedIn | async)" class="link-header" style="border-left: 1px solid #798024" (click)="navCalendar()">Calendar</a>
     <a *ngIf="(isLoggedIn | async)" class="link-header" (click)="navReports()">Reports</a>
     <a *ngIf="(isLoggedIn | async)" class="link-header" (click)="navDashboard()">Scrumboard</a>
   </div>
 
   <div class="right-part">
-    <button *ngIf="(isLoggedIn | async)" class="btn" id="cometchat" (click)="openChat()">
+    <button *ngIf="(isLoggedIn | async)" class="link-header" id="cometchat" (click)="openChat()">
       <img class="menu" src="./assets/content/icons/phone.png" alt="Menu">
     </button>
     <a *ngIf="!(isLoggedIn | async)" class="link-header" routerLink = "../login">Login</a>
     <a *ngIf="!(isLoggedIn | async)" class="link-header" routerLink = "../register">Register</a>
     <a *ngIf="(isLoggedIn | async)" class="link-header" (click)="logout()" routerLink = "../login">Logout</a>
-
-    <div class="nav-item dropdown">
-      <div  class="d-inline-block">
-        <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
-          <img class="menu" src="./assets/content/icons/menu.png" alt="Menu">
-        </button>
-      </div>
-    </div>
   </div>
 </div>
 

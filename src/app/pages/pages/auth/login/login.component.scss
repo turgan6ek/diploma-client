@@ -15,7 +15,7 @@
   min-height: calc(100vh - 150px);
 }
 .square {
-  border-radius: 0px;
+  border-radius: 10px;
   border: 1px solid #798024;
   background: #FFF5CF;
 }
@@ -23,8 +23,10 @@
   display: flex;
   justify-content: center;
   margin: 10px auto;
+  border-radius: 10px;
 }
 button {
+  border-radius: 10px;
   border: 1px solid #798024;
   padding: 15px 35px;
   background-color: #FFFFFF;
@@ -182,7 +184,7 @@ select.form-control[size], select.form-control[multiple] {
   height: auto;
 }
 .square {
-  border-radius: 0px;
+  border-radius: 10px;
   border: 1px solid #798024;
   background: #FFF5CF;
 }

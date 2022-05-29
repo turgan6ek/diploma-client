@@ -10,19 +10,21 @@ import { CustomLayoutModule } from './custom-layout/custom-layout.module';
 import {FooterComponent} from "./footer/footer.component";
 import {HeaderComponent} from "./header/header.component";
 import {MatSelectModule} from "@angular/material/select";
+import {FlexModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    // Vex
-    VexModule,
-    CustomLayoutModule,
-    MatSelectModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        // Vex
+        VexModule,
+        CustomLayoutModule,
+        MatSelectModule,
+        FlexModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
