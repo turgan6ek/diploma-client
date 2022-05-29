@@ -26,7 +26,7 @@ export class CardService {
   }
 
   saveCard(card): Observable<any> {
-    return this._http.post(`${this.CARD}/create`, card, {responseType: 'text'});
+    return this._http.post(`${this.CARD}/create`, card, {responseType: 'json'});
   }
 
   changeStatus(id, status): Observable<any> {

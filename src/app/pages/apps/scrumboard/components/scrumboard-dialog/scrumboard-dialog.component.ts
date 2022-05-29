@@ -47,9 +47,9 @@ export class ScrumboardDialogComponent implements OnInit {
   ];
 
   weights = [
-    {id: 1, val: 'Easy'},
-    {id: 2, val: 'Medium'},
-    {id: 3, val: 'Hard'}
+    {id: 25, val: 'Easy'},
+    {id: 50, val: 'Medium'},
+    {id: 75, val: 'Hard'}
   ];
 
   commentCtrl = new FormControl();
@@ -109,7 +109,14 @@ export class ScrumboardDialogComponent implements OnInit {
 
   save() {
     this.cardService.saveCard(this.form.value).subscribe(res => {
+      this.form.value.id = res.id;
+      console.log('res', res.id);
+      this.close();
     });
+  }
+
+  close () {
+    console.log('this.form.value', this.form.value);
     this.dialogRef.close(this.form.value);
   }
   compareFunction(o1: any, o2: any) {
