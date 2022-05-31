@@ -68,10 +68,13 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
   }
   getCards(): void {
     this.board$.subscribe(board => {
+      console.log(board)
       board.children[0].children = [];
       board.children[1].children = [];
       board.children[2].children = [];
-      board.children[3].children = [];
+      if (this.authService.currentUserValue.roles[0] === 'USER') {
+        board.children[3].children = [];
+      }
     })
     this.cardService.getAllCardsByUser(JSON.parse(localStorage.getItem('currentUser')).id).subscribe(
         res => {
@@ -99,11 +102,13 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
                 })
                 break;
               case 'DONE':
-                this.board$.subscribe(board => {
-                  if (!board.children[3].children.includes(c)) {
-                    board.children[3].children.push(c);
-                  }
-                })
+                if (this.authService.currentUserValue.roles[0] === 'USER') {
+                  this.board$.subscribe(board => {
+                    if (!board.children[3].children.includes(c)) {
+                      board.children[3].children.push(c);
+                    }
+                  })
+                }
                 break;
             }
           }
@@ -248,6 +253,11 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   ngAfterContentInit(): void {
+    if (this.authService.currentUserValue.roles[0] === 'USER') {
+      this.board$.subscribe(board => {
+        board.children.pop();
+      });
+    }
     this.getCards();
   }
   delete(card, list): void {
