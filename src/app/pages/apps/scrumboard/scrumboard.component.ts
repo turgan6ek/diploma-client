@@ -73,7 +73,9 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
       board.children[1].children = [];
       board.children[2].children = [];
       if (this.authService.currentUserValue.roles[0] === 'USER') {
-        board.children[3].children = [];
+        if (board.children[3]?.children) {
+          board.children[3].children = [];
+        }
       }
     })
     this.cardService.getAllCardsByUser(JSON.parse(localStorage.getItem('currentUser')).id).subscribe(
@@ -255,7 +257,9 @@ export class ScrumboardComponent implements OnInit, AfterContentInit, AfterViewI
   ngAfterContentInit(): void {
     if (this.authService.currentUserValue.roles[0] === 'USER') {
       this.board$.subscribe(board => {
-        board.children.pop();
+        if (board.children.length > 3) {
+          board.children.pop();
+        }
       });
     }
     this.getCards();
