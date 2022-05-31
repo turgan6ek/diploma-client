@@ -33,7 +33,6 @@ export class ScrumboardDialogComponent implements OnInit {
     title: null,
     description: null,
     userUuids: [],
-    priority: null,
     weight: null,
     sprintId: null,
     deadline: null
@@ -96,7 +95,6 @@ export class ScrumboardDialogComponent implements OnInit {
         title: card.title || '',
         description: card.description || '',
         userUuids: card.userUuids || [],
-        priority: card.priority,
         weight: card.weight,
         sprintId: 1,
         deadline: card.deadline

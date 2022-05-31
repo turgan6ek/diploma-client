@@ -53,13 +53,6 @@
               <mat-option *ngFor="let w of weights" [value]="w.id">{{w.val}}</mat-option>
             </mat-select>
           </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Select priority</mat-label>
-            <mat-select formControlName="priority" >
-              <mat-option *ngFor="let priority of priorities" [value]="priority.id">{{priority.val}}</mat-option>
-            </mat-select>
-          </mat-form-field>
         </div>
       </div>
     </div>

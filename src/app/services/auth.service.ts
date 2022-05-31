@@ -56,4 +56,8 @@ export class AuthService {
   loggedIn() {
     return this.currentUserSubject.asObservable();
   }
+
+  reset(email): Observable<any> {
+    return this.http.get(`/auth/public/v1/auth/reset?email=${email}`);
+  }
 }

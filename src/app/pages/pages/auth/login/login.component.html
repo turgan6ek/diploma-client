@@ -6,7 +6,7 @@
       <input id="email" formControlName="login" type="email" required class="form-control square" />
       <label for="password">Password</label>
       <input id="password" formControlName="password" type="password" required class="form-control square" />
-      <!-- The button has a click handler, it will be disabled if the form is not valid -->
+      <a href="/forgot-password">Forgot password?</a>
       <div class="abutton">
         <button (click)="send()" [disabled]="!loginForm.valid" type="submit" class="btn">Log in</button>
       </div>

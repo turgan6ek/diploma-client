@@ -3,7 +3,7 @@
     "context": [
       "/auth"
     ],
-    "target": "http://localhost:9004",
+    "target": "http://195.49.215.84:9004",
     "secure": true,
     "changeOrigin": true
   }
