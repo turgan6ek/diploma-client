@@ -88,6 +88,7 @@ const routes: VexRoutes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, {
+        useHash: true,
         preloadingStrategy: QuicklinkStrategy,
         scrollPositionRestoration: 'enabled',
         relativeLinkResolution: 'corrected',

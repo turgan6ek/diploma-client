@@ -11,8 +11,8 @@ import {User} from '../models/user';
 export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  private registerUrl = '/auth/public/v1/auth/register';
-  private loginUrl = '/auth/public/v1/auth/login';
+  private registerUrl = '/api/auth/public/v1/auth/register';
+  private loginUrl = '/api/auth/public/v1/auth/login';
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(
@@ -58,6 +58,6 @@ export class AuthService {
   }
 
   reset(email): Observable<any> {
-    return this.http.get(`/auth/public/v1/auth/reset?email=${email}`);
+    return this.http.get(`/api/auth/public/v1/auth/reset?email=${email}`);
   }
 }

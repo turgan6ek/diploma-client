@@ -7,9 +7,9 @@ import {HttpClient} from "@angular/common/http";
 })
 export class CardService {
 
-  private readonly GENERAL = '/auth/public/v1/auth';
-  private readonly CARD = '/auth/public/v1/card';
-  private readonly PEBBLE = '/auth/public/v1/auth/pebble';
+  private readonly GENERAL = '/api/auth/public/v1/auth';
+  private readonly CARD = '/api/auth/public/v1/card';
+  private readonly PEBBLE = '/api/auth/public/v1/auth/pebble';
 
   constructor(private _http: HttpClient) { }
 
